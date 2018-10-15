@@ -64,7 +64,7 @@ List Sort(ElementType st_adr, List L)
 		L = t1;
 		while (L)
 		{
-			if (L->adr == find_adr)
+			if (L->adr == find_adr)		//按地址插入排序
 			{
 				Attach(L->adr, L->Data, L->next_adr, &P);
 				find_adr = L->next_adr;
@@ -81,16 +81,22 @@ List Sort(ElementType st_adr, List L)
 	return P;
 }
 
-List Reverse(ElementType K, List L)
+List Reverse(ElementType K, List L)		//反向
 {
 	List p1, p2;
 	p1 = L;
 	p2 = L->Next;
 	while (--K)
 	{
+		if (p2->Next == NULL)		//全反转时最后一个元素-1
+			p1->next_adr = p2->next_adr;
 		p1->Next = p2->Next;
+		if (p2->Next)
+			p1->next_adr = p2->Next->adr;
 		p2->Next = L;
 		L = p2;
+		if (p2->Next)
+			p2->next_adr = p2->Next->adr;
 		p2 = p1->Next;
 	}
 
@@ -99,7 +105,7 @@ List Reverse(ElementType K, List L)
 
 void Print(List L)
 {
-	printf("\n");	//测试专用
+	//printf("\n");	//测试专用
 
 	while (L)
 	{
