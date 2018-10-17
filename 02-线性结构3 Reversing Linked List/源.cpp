@@ -33,6 +33,7 @@ int main()
 	L = p;
 	L = L->Next;	//指向第一个元素
 	L = Sort(st_adr, L);
+	//Print(L);
 	L = Reverse(K, L);
 	Print(L);
 
@@ -89,7 +90,7 @@ List Reverse(ElementType K, List L)		//反向
 	while (--K)
 	{
 		if (p2->Next == NULL)		//全反转时最后一个元素-1
-			p1->next_adr = p2->next_adr;
+			p1->next_adr = -1;
 		p1->Next = p2->Next;
 		if (p2->Next)
 			p1->next_adr = p2->Next->adr;
