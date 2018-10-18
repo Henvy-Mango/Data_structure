@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="源.cpp">
+    <ClCompile Include="一元多项式的乘法与加法运算.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

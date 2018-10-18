@@ -16,6 +16,8 @@ void Attach(ElementType adr, ElementType Data, ElementType next_adr, List *rear)
 List Sort(ElementType st_adr, List L);
 List Reverse(ElementType K, List L);
 
+//审题注意这里要求是每第K个元素反转
+
 int main()
 {
 	ElementType st_adr, N, K;

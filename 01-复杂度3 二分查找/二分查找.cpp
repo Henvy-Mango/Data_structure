@@ -20,7 +20,8 @@ List ReadInput() {//List is a point;
 	scanf("%d", &N);
 	List L = (List)malloc(sizeof(struct LNode)); 
 	L->Last = N;
-	for (ElementType i = 1; i <= N; i++) {
+	for (ElementType i = 1; i <= N; i++) 
+	{
 		scanf("%d", &L->Data[i]);
 	}
 	return L;
