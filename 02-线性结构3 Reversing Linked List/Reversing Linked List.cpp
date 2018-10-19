@@ -18,6 +18,8 @@ List Reverse(ElementType K, List L);
 
 //审题注意这里要求是每第K个元素反转
 
+int num = 0;
+
 int main()
 {
 	ElementType st_adr, N, K;
@@ -35,7 +37,7 @@ int main()
 	L = p;
 	L = L->Next;	//指向第一个元素
 	L = Sort(st_adr, L);
-	//Print(L);
+	Print(L);
 	L = Reverse(K, L);
 	Print(L);
 
@@ -71,6 +73,7 @@ List Sort(ElementType st_adr, List L)
 			{
 				Attach(L->adr, L->Data, L->next_adr, &P);
 				find_adr = L->next_adr;
+				num++;
 			}
 			else
 			{
@@ -86,29 +89,26 @@ List Sort(ElementType st_adr, List L)
 
 List Reverse(ElementType K, List L)		//反向
 {
-	List p1, p2;
-	p1 = L;
-	p2 = L->Next;
-	while (--K)
-	{
-		if (p2->Next == NULL)		//全反转时最后一个元素-1
-			p1->next_adr = -1;
-		p1->Next = p2->Next;
-		if (p2->Next)
-			p1->next_adr = p2->Next->adr;
-		p2->Next = L;
-		L = p2;
-		if (p2->Next)
-			p2->next_adr = p2->Next->adr;
-		p2 = p1->Next;
+	int cnt = 1;        //用于计数已逆转的结点数 
+	List p1 = L;
+	List p2 = p1->Next;
+	List tmp, head;
+
+	while (cnt < K) {
+		tmp = p2->Next;    //用于old结点逆转后 记录未逆转链表的头结点 
+		p2->Next = p1;
+		p1->Next = tmp;
+		p1 = p2;            //向后移位 
+		p2 = tmp;            //向后移位 
+		cnt++;                //逆转节点+1 
 	}
+	L->Next = p1;
 
-	return L;
+	return p1;        //新的头结点 
 }
-
 void Print(List L)
 {
-	//printf("\n");	//测试专用
+	printf("\n");	//测试专用
 
 	while (L)
 	{
