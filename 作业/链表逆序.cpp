@@ -13,6 +13,7 @@
 //int main()
 //{
 //	int N;
+//	printf("Please input N = \n");
 //	scanf("%d", &N);
 //
 //	List L = (List)malloc(sizeof(struct LNode));
@@ -37,7 +38,8 @@
 //		printf("%d ", L->Data);
 //		L = L->Next;
 //	}
-//
+//	
+//	printf("\n");
 //	return 0;
 //}
 //
