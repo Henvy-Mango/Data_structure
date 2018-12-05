@@ -62,10 +62,14 @@ List InitQueue()
 	for (int i = 0; i < n - 1; i++)
 	{
 		p = (List)malloc(sizeof(struct LNode));
-		t->Next = p;
-		t = p;
+		if (t)
+		{
+			t->Next = p;
+			t = p;
+		}
 	}
-	t->Next = L;
+	if (t)
+		t->Next = L;
 
 	return L;
 }
