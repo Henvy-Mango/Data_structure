@@ -26,6 +26,9 @@ int main()
 	ElementType adr, Data, next_adr;
 	List p;
 	List L = (List)malloc(sizeof(struct Node));
+	if (L == NULL)
+		return 0;
+
 	p = L;
 	scanf("%d %d %d", &st_adr, &N, &K);
 
@@ -47,14 +50,16 @@ int main()
 void Attach(ElementType adr, ElementType Data, ElementType next_adr, List *rear)
 {
 	List p = (List)malloc(sizeof(struct Node));
+	if (p) 
+	{
+		p->adr = adr;
+		p->Data = Data;
+		p->next_adr = next_adr;
 
-	p->adr = adr;
-	p->Data = Data;
-	p->next_adr = next_adr;
-
-	p->Next = NULL;
-	(*rear)->Next = p;
-	*rear = p;
+		p->Next = NULL;
+		(*rear)->Next = p;
+		*rear = p;
+	}
 }
 
 List Sort(ElementType st_adr, List L)
@@ -82,6 +87,7 @@ List Sort(ElementType st_adr, List L)
 		}
 	}
 	P = t2;
+	if(P)
 	P = P->Next;
 
 	return P;

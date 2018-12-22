@@ -15,13 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="循环链表队列.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="链表逆序.cpp">
-      <Filter>资源文件</Filter>
+      <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="顺序表逆序.cpp">
-      <Filter>资源文件</Filter>
+      <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="循环链表队列.cpp">
+    <ClCompile Include="二叉树建立与遍历.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="哈夫曼树.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="连通图.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
