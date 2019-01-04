@@ -23,7 +23,7 @@
     <ProjectGuid>{54DF2DCC-6D92-484F-9796-56F18E6207B2}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>My02线性结构2一元多项式的乘法与加法运算</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

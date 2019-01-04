@@ -23,7 +23,7 @@
     <ProjectGuid>{2E2344BC-4C0B-4047-A5A0-64C7630BA5AA}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>My02线性结构3ReversingLinkedList</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
