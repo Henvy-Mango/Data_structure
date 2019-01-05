@@ -141,6 +141,9 @@
   <ItemGroup>
     <ClCompile Include="数据库.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="数据库.hpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
