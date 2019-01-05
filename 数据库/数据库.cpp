@@ -24,6 +24,7 @@ int main()
 	}
 	printf("口令正确!\n");
 
+	//菜单
 	Menu();
 	system("pause");
 	return 0;

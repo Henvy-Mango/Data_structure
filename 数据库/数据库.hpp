@@ -55,13 +55,18 @@ void Add()
 		printf("正在添加第 %d 条记录\n", i + 1);
 		Addition(&Student[i], i);
 	}
+	flag = 0;
+
+	printf("\n");
 	printf("添加结束\n");
+	system("pause");
 }
 
 void Del()
 {
 	if (N == 0)
 	{
+		printf("\n");
 		printf("非法操作!\n");
 		return;
 	}
@@ -77,14 +82,18 @@ void Del()
 	}
 
 	N -= temp;
+	flag = 0;
 
+	printf("\n");
 	printf("删除结束\n");
+	system("pause");
 }
 
 void Modify()
 {
 	if (N == 0)
 	{
+		printf("\n");
 		printf("非法操作!\n");
 		return;
 	}
@@ -101,8 +110,11 @@ void Modify()
 	}
 
 	Addition(&Student[temp - 1], temp);
+	flag = 0;
 
+	printf("\n");
 	printf("修改结束\n");
+	system("pause");
 }
 
 void Display(student L)
@@ -116,9 +128,11 @@ void Dis()
 {
 	if (N == 0)
 	{
+		printf("\n");
 		printf("当前数据库为空!\n");
 		return;
 	}
+	printf("\n");
 	for (int i = 0; i < N; i++)
 	{
 		printf("正在显示第 %d 条记录\n", i + 1);
@@ -150,18 +164,32 @@ void Sort()
 			break;
 	}
 	flag = 1;
+	printf("\n");
+	printf("排序成功!\n");
+	system("pause");
 }
 
 void Search()
 {
+	if (flag == 0)
+	{
+		printf("\n");
+		printf("当前数据尚未排序!\n");
+		system("pause");
+		return;
+	}
+
 	printf("输入需要查找的总成绩:\n");
 
 	int temp;
 	scanf("%d", &temp);
 
+	printf("\n");
+
 	int low, mid, high;
 	low = 0;
 	high = N - 1;
+
 	while (low <= high)
 	{
 		mid = (low + high) / 2;
@@ -171,12 +199,15 @@ void Search()
 			low = mid + 1;
 		else if (temp == Student[mid].score_Sum)
 		{
-			printf("正在显示第 %d 条记录\n", mid + 1);
+			printf("查找成功,正在显示第 %d 条记录\n", mid + 1);
 			Display(Student[mid]);
+			system("pause");
 			return;
 		}
 	}
-	printf("未找到记录!\n");
+
+	printf("查找失败,未找到记录!\n");
+
 	system("pause");
 	return;
 }
@@ -185,33 +216,36 @@ void Menu()
 {
 	while (1)
 	{
-		printf("学生成绩管理系统菜单界面\n");
-		printf("当前系统有  %d  条记录\n", N);
-		printf("输入下列指令来操作:\n");
-		printf("添加记录请输入      1\n");
-		printf("删除记录请输入      2\n");
-		printf("修改记录请输入      3\n");
-		printf("显示记录请输入      4\n");
-		printf("输出排序记录请输入  5\n");
-		printf("查找成绩记录请输入  6\n");
-		printf("退出菜单请输入      0\n");
-
+		printf("-------学生成绩管理系统------\n");
+		printf("----当前系统有  %d  条记录---\n", N);
+		printf("1.添加     2.删除     3.修改 \n");
+		printf("4.显示     5.排序     6.查找 \n");
+		printf("7.保存     0.退出\n");
+		printf("-----------------------------\n");
 		int select;
+		printf("请输入:");
 		scanf("%d", &select);
 
 		if (select == 1)
 			Add();
-		if (select == 2)
+		else if (select == 2)
 			Del();
-		if (select == 3)
+		else if (select == 3)
 			Modify();
-		if (select == 4)
+		else if (select == 4)
 			Dis();
-		if (select == 5)
+		else if (select == 5)
 			Sort();
-		if (select == 6)
+		else if (select == 6)
 			Search();
-		if (select == 0)
+		//else if (select == 7)
+		//	Save();
+		else if (select == 0)
 			return;
+		else
+		{
+			printf("指令有误!请重新输入!\n");
+			system("pause");
+		}
 	}
 }
