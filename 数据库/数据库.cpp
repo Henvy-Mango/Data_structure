@@ -14,10 +14,12 @@ int main()
 		if (temp != Password)
 		{
 			printf("错误!\n");
+				//检查错误次数
 				if (i == 2)
 				{
 					printf("错误次数达到三次，程序自动退出\n");
 					system("pause");
+					//退出程序
 					return -1;
 				}
 		}

@@ -4,41 +4,42 @@
 
 
 struct student {
-	int Num;
-	char name[10];
-	int grade;
-	char major[10];
-	int score_1;
-	int score_2;
-	int score_3;
-	int score_Avg;
-	int score_Sum;
+	int Num;//学号
+	char name[10];//名字
+	int grade;//年级
+	char major[10];//专业
+	int score_1;//成绩1
+	int score_2;//成绩2
+	int score_3;//成绩3
+	int score_Avg;//平均成绩
+	int score_Sum;//总成绩
 };
 typedef student *Std;
 
 //全局变量
 struct student Student[100];
-int N = 0;
-int Avg_flag = 0;
-int Sum_flag = 0;
+int N = 0;//数据库内所有数据条数
+int Avg_flag = 0;//平均成绩排序标志
+int Sum_flag = 0;//总成绩排序标志
 
 void Addition(Std Student, int i)
 {
-	printf("请输入学生的学号:\n");
+	printf("请输入学生的学号(数字):\n");
 	scanf("%d", &Student->Num);
-	printf("请输入学生的名字:\n");
+	printf("请输入学生的名字(字符):\n");
 	scanf("%s", &Student->name);
-	printf("请输入学生的年级:\n");
+	printf("请输入学生的年级(数字):\n");
 	scanf("%d", &Student->grade);
-	printf("请输入学生的专业:\n");
+	printf("请输入学生的专业(字符):\n");
 	scanf("%s", &Student->major);
-	printf("请输入学生的成绩 1:\n");
+	printf("请输入学生的成绩 1(数字):\n");
 	scanf("%d", &Student->score_1);
-	printf("请输入学生的成绩 2:\n");
+	printf("请输入学生的成绩 2(数字):\n");
 	scanf("%d", &Student->score_2);
-	printf("请输入学生的成绩 3:\n");
+	printf("请输入学生的成绩 3(数字):\n");
 	scanf("%d", &Student->score_3);
 
+	//计算平均成绩和总成绩
 	Student->score_Sum = Student->score_1 + Student->score_2 + Student->score_3;
 	Student->score_Avg = Student->score_Sum / 3;
 }
@@ -151,6 +152,7 @@ void Dis()
 
 void Avg_Sort()
 {
+	//插入排序
 	for (int j = N - 1; j >= 0; j--)
 	{
 		int temp = 0;
@@ -178,6 +180,7 @@ void Avg_Sort()
 
 void Sum_Sort()
 {
+	//插入排序
 	for (int j = N - 1; j >= 0; j--)
 	{
 		int temp = 0;
@@ -215,6 +218,7 @@ void Save(char *data)
 
 	for (int i = 0; i < N; i++)
 	{
+		//文件保存
 		fprintf(fp, "学号:  %d  名字:  %s  年级:  %d  专业:  %s  成绩 1:  %d  成绩 2:  %d  成绩 3:  %d  平均成绩:  %d  总成绩:  %d\n", Student[i].Num, Student[i].name, Student[i].grade, Student[i].major, Student[i].score_1, Student[i].score_2, Student[i].score_3, Student[i].score_Avg, Student[i].score_Sum);
 	}
 	fclose(fp);
@@ -235,6 +239,7 @@ void Sort()
 		if (temp == 1)
 		{
 			Avg_Sort();
+			//保存到Avg_List.txt
 			char data[15] = { "Avg_List.txt" };
 			Save(data);
 			return;
@@ -242,6 +247,7 @@ void Sort()
 		else if (temp == 2)
 		{
 			Sum_Sort();
+			//保存到Sum_List.txt
 			char data[15] = { "Sum_List.txt" };
 			Save(data);
 			return;
@@ -291,7 +297,7 @@ void Search()
 			int low, mid, high;
 			low = 0;
 			high = N - 1;
-
+			//二分查找
 			while (low <= high)
 			{
 				mid = (low + high) / 2;
@@ -333,7 +339,7 @@ void Search()
 			int low, mid, high;
 			low = 0;
 			high = N - 1;
-
+			//二分查找
 			while (low <= high)
 			{
 				mid = (low + high) / 2;
@@ -387,13 +393,16 @@ void Load()
 
 			while (!feof(fp))
 			{
+				//读取文件
 				temp = fscanf(fp, "学号:  %d  名字:  %s  年级:  %d  专业:  %s  成绩 1:  %d  成绩 2:  %d  成绩 3:  %d  平均成绩:  %d  总成绩:  %d\n", &Student[N].Num, &Student[N].name, &Student[N].grade, &Student[N].major, &Student[N].score_1, &Student[N].score_2, &Student[N].score_3, &Student[N].score_Avg, &Student[N].score_Sum);
+				//检查读取的变量个数
 				if (temp != 9)
 				{
 					printf("文件格式错误!\n");
 					system("pause");
 					return;
 				}
+				//计算平均成绩和总成绩
 				Student[N].score_Sum = Student[N].score_1 + Student[N].score_2 + Student[N].score_3;
 				Student[N].score_Avg = Student[N].score_Sum / 3;
 				N++;
@@ -433,6 +442,7 @@ void Load()
 
 void Menu()
 {
+	//菜单界面
 	while (1)
 	{
 		printf("-------学生成绩管理系统------\n");
