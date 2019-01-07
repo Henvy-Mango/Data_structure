@@ -11,7 +11,7 @@ struct student {
 	int score_1;//成绩1
 	int score_2;//成绩2
 	int score_3;//成绩3
-	int score_Avg;//平均成绩
+	float score_Avg;//平均成绩
 	int score_Sum;//总成绩
 };
 typedef student *Std;
@@ -41,7 +41,7 @@ void Addition(Std Student, int i)
 
 	//计算平均成绩和总成绩
 	Student->score_Sum = Student->score_1 + Student->score_2 + Student->score_3;
-	Student->score_Avg = Student->score_Sum / 3;
+	Student->score_Avg = (float)Student->score_Sum / 3;
 }
 
 void Add()
@@ -126,7 +126,7 @@ void Display(student L)
 {
 	printf("学号:  %d  名字:  %s  年级:  %d  专业:  %s\n", L.Num, L.name, L.grade, L.major);
 	printf("成绩 1:  %d  成绩 2:  %d  成绩 3:  %d\n", L.score_1, L.score_2, L.score_3);
-	printf("平均成绩:  %d  总成绩:  %d\n", L.score_Avg, L.score_Sum);
+	printf("平均成绩:  %.2f  总成绩:  %d\n", L.score_Avg, L.score_Sum);
 	printf("\n");
 }
 void Dis()
@@ -219,7 +219,7 @@ void Save(char *data)
 	for (int i = 0; i < N; i++)
 	{
 		//文件保存
-		fprintf(fp, "学号:  %d  名字:  %s  年级:  %d  专业:  %s  成绩 1:  %d  成绩 2:  %d  成绩 3:  %d  平均成绩:  %d  总成绩:  %d\n", Student[i].Num, Student[i].name, Student[i].grade, Student[i].major, Student[i].score_1, Student[i].score_2, Student[i].score_3, Student[i].score_Avg, Student[i].score_Sum);
+		fprintf(fp, "学号:  %d  名字:  %s  年级:  %d  专业:  %s  成绩 1:  %d  成绩 2:  %d  成绩 3:  %d  平均成绩:  %.2f  总成绩:  %d\n", Student[i].Num, Student[i].name, Student[i].grade, Student[i].major, Student[i].score_1, Student[i].score_2, Student[i].score_3, Student[i].score_Avg, Student[i].score_Sum);
 	}
 	fclose(fp);
 	return;
@@ -289,8 +289,8 @@ void Search()
 
 			printf("输入需要查找的平均成绩:\n");
 
-			int temp;
-			scanf("%d", &temp);
+			float temp;
+			scanf("%f", &temp);
 
 			printf("\n");
 
@@ -394,7 +394,7 @@ void Load()
 			while (!feof(fp))
 			{
 				//读取文件
-				temp = fscanf(fp, "学号:  %d  名字:  %s  年级:  %d  专业:  %s  成绩 1:  %d  成绩 2:  %d  成绩 3:  %d  平均成绩:  %d  总成绩:  %d\n", &Student[N].Num, &Student[N].name, &Student[N].grade, &Student[N].major, &Student[N].score_1, &Student[N].score_2, &Student[N].score_3, &Student[N].score_Avg, &Student[N].score_Sum);
+				temp = fscanf(fp, "学号:  %d  名字:  %s  年级:  %d  专业:  %s  成绩 1:  %d  成绩 2:  %d  成绩 3:  %d  平均成绩:  %f  总成绩:  %d\n", &Student[N].Num, &Student[N].name, &Student[N].grade, &Student[N].major, &Student[N].score_1, &Student[N].score_2, &Student[N].score_3, &Student[N].score_Avg, &Student[N].score_Sum);
 				//检查读取的变量个数
 				if (temp != 9)
 				{
@@ -404,7 +404,7 @@ void Load()
 				}
 				//计算平均成绩和总成绩
 				Student[N].score_Sum = Student[N].score_1 + Student[N].score_2 + Student[N].score_3;
-				Student[N].score_Avg = Student[N].score_Sum / 3;
+				Student[N].score_Avg = (float)Student[N].score_Sum / 3;
 				N++;
 			}
 			fclose(fp);
@@ -424,7 +424,7 @@ void Load()
 
 			while (!feof(fp))
 			{
-				fscanf(fp, "学号:  %d  名字:  %s  年级:  %d  专业:  %s  成绩 1:  %d  成绩 2:  %d  成绩 3:  %d  平均成绩:  %d  总成绩:  %d\n", &Student[N].Num, &Student[N].name, &Student[N].grade, &Student[N].major, &Student[N].score_1, &Student[N].score_2, &Student[N].score_3, &Student[N].score_Avg, &Student[N].score_Sum);
+				fscanf(fp, "学号:  %d  名字:  %s  年级:  %d  专业:  %s  成绩 1:  %d  成绩 2:  %d  成绩 3:  %d  平均成绩:  %f  总成绩:  %d\n", &Student[N].Num, &Student[N].name, &Student[N].grade, &Student[N].major, &Student[N].score_1, &Student[N].score_2, &Student[N].score_3, &Student[N].score_Avg, &Student[N].score_Sum);
 				N++;
 			}
 			fclose(fp);
