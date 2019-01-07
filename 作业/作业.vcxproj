@@ -144,6 +144,7 @@
     <ClCompile Include="二叉树建立与遍历.cpp" />
     <ClCompile Include="哈夫曼树.cpp" />
     <ClCompile Include="循环链表队列.cpp" />
+    <ClCompile Include="源.cpp" />
     <ClCompile Include="连通图.cpp" />
     <ClCompile Include="链表逆序.cpp" />
     <ClCompile Include="顺序表逆序.cpp" />
