@@ -36,5 +36,14 @@
     <ClCompile Include="鸡兔同笼.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="全排列.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="n皇后问题.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="最长公共子序列问题.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
